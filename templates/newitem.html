@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<h1>New Item</h1>
+
+<section id='centre'>
+    <form action="{{ url_for('new_item')}}" method = 'post'>
+
+        <dl>
+            <dt>Name:</dt>
+            <dd>
+                <input type ='text' size='30' name='name' required>
+            </dd>
+            <dt>Description:</dt>
+            <dd>
+                <textarea name = 'description' rows='5' cols='40' required></textarea>
+            </dd>
+            <dt>Catalog:</dt>
+            <dd>
+                <select name = 'catalog-id'>
+                    <option></option>
+                    {% for i in catalog %}
+                    <option value="{{i.id}}">{{i.name}}</option>
+                    {% endfor %}
+                </select>
+            </dd>
+        </dl>
+
+        <input type='submit' value='Submit'>
+
+    </form>
+</section>
+{% endblock %}

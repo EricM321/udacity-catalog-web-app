@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<section id='centre'>
+    <div class = 'categories'>
+        <h2>Categories</h2>
+        <div class = 'category'>
+            {% for i in catalogs %}
+            <a href="/catalog/{{i.name}}/items/">{{i.name}}</a>
+            <br>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="vertical-line" style="height: 250px;"></div>
+
+    <div class = 'latest'>
+        <h2>{{catalog.name}} items ({{num}} items)</h2>
+        {% for i in items %}
+        <span class = 'name'>
+            <a href="/catalog/{{catalog.name}}/{{i.name}}/">{{i.name}}</a>
+            <br>
+        </span>
+        {% endfor %}
+    </div>
+
+</section>
+{% endblock %}

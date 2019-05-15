@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<section id='centre'>
+    <h1> Are you sure you want to delete {{item.name}}? </h1>
+
+    <form action="{{ url_for('delete_item',  item=item.name)}}" method = 'post'>
+        <input type='submit', value = 'Delete'>
+    </form>
+</section>
+{% endblock %}
